@@ -2,7 +2,7 @@ library(terra)
 library(ncdf4)
 library(parallel)
 
-input_dir      <- "/mnt/g/OCO2/B10"
+input_dir      <- "/mnt/g/OCO2/B11/original"
 mcd12_dir      <- "/mnt/g/MCD12C1/2020/reprocessed/percent"
 mcd12_majority <- "/mnt/g/MCD12C1/2020/reprocessed/majority/MCD12C1.A2020001.006.Majority_LC.tif"
 year           <- 2020
