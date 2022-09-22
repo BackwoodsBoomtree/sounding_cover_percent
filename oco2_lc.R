@@ -100,4 +100,15 @@ add_lc <- function(input_file){
   
 }
 
+### For debugging
+# for(i in 1:length(input_list)) {
+#   # add_lc(input_list[i])
+#   myfile <- nc_open(input_list[i])
+#   message(input_list[i])
+#   v    <- ncvar_get(myfile, varid = "Science/LC_MASK_2020")
+#   message("Got it")
+#   nc_close(myfile)
+# 
+# }
+
 mclapply(input_list, add_lc, mc.cores = 5, mc.preschedule = FALSE)
