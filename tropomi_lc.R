@@ -2,10 +2,10 @@ library(terra)
 library(ncdf4)
 library(parallel)
 
-tropomi_dir    <- "/mnt/g/TROPOMI/esa/original"
-mcd12_dir      <- "/mnt/g/MCD12C1/2020/reprocessed/percent"
-mcd12_majority <- "/mnt/g/MCD12C1/2020/reprocessed/majority/MCD12C1.A2020001.006.Majority_LC.tif"
-year           <- 2020
+tropomi_dir    <- "/mnt/g/TROPOMI/new/2022"
+mcd12_dir      <- "/mnt/g/MCD12C1/v061/2022/reprocessed/percent"
+mcd12_majority <- "/mnt/g/MCD12C1/v061/2022/reprocessed/majority/MCD12C1.A2022001.061.Majority_LC.tif"
+year           <- 2022
 
 # File lists
 tropomi_list <- list.files(tropomi_dir, recursive = TRUE, full.names = TRUE, pattern = "*.nc")
@@ -71,7 +71,7 @@ add_lc <- function(tropomi_file){
     ncvar_put(myfile, lc_name,  pts_lc_maj[,2])
     
   } else {
-    lc_var <- ncvar_def(lc_name, units ="-", dim = elem_dim, longname = "Majority Land Cover Type MCD12C1 2020",
+    lc_var <- ncvar_def(lc_name, units ="-", dim = elem_dim, longname = "Majority Land Cover Type MCD12C1 061 2022",
                         pre = "float", compression = 4, missval = -9999)
     ncvar_add(myfile, lc_var)
     nc_close(myfile)
@@ -84,7 +84,7 @@ add_lc <- function(tropomi_file){
     ncvar_put(myfile, lc_perc,  pts_lc_maj[,3])
     
   } else {
-    lc_perc_var <- ncvar_def(lc_perc, units ="Percent", dim = elem_dim, longname = "Majority Land Cover Percentage MCD12C1 2020",
+    lc_perc_var <- ncvar_def(lc_perc, units ="Percent", dim = elem_dim, longname = "Majority Land Cover Percentage MCD12C1 061 2022",
                              pre = "float", compression = 4, missval = -9999)
     ncvar_add(myfile, lc_perc_var)
     nc_close(myfile)
