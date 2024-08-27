@@ -71,7 +71,7 @@ add_lc <- function(tropomi_file){
     ncvar_put(myfile, lc_name,  pts_lc_maj[,2])
     
   } else {
-    lc_var <- ncvar_def(lc_name, units ="-", dim = elem_dim, longname = "Majority Land Cover Type MCD12C1 061 2022",
+    lc_var <- ncvar_def(lc_name, units ="-", dim = elem_dim, longname = "Majority Land Cover Type MCD12C1 v061 2022",
                         pre = "float", compression = 4, missval = -9999)
     ncvar_add(myfile, lc_var)
     nc_close(myfile)
@@ -84,7 +84,7 @@ add_lc <- function(tropomi_file){
     ncvar_put(myfile, lc_perc,  pts_lc_maj[,3])
     
   } else {
-    lc_perc_var <- ncvar_def(lc_perc, units ="Percent", dim = elem_dim, longname = "Majority Land Cover Percentage MCD12C1 061 2022",
+    lc_perc_var <- ncvar_def(lc_perc, units ="Percent", dim = elem_dim, longname = "Majority Land Cover Percentage MCD12C1 v061 2022",
                              pre = "float", compression = 4, missval = -9999)
     ncvar_add(myfile, lc_perc_var)
     nc_close(myfile)
